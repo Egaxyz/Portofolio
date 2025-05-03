@@ -86,8 +86,8 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="inline-block text-blue-400 text-sm leading-tight hover:underline"
                 >
-                  <div className="whitespace-pre text-lg">
-                    {"-> " + project.link}
+                  <div className="whitespace-pre ">
+                    <h1 className="text-md">{project.link}</h1>
                   </div>
                 </a>
               </div>
