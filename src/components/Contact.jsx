@@ -1,10 +1,27 @@
-import { FaEnvelope, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaFacebook,
+  FaInstagram,
+  FaGithub,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Contact() {
   return (
     <section className="my-12">
       <h2 className="text-2xl font-semibold text-white mb-4">Contact</h2>
       <ul className="space-y-2">
+        <li className="flex items-center gap-2 text-white">
+          <FaWhatsapp className="" />
+          <a
+            href="https://wa.me/6285806428673"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-300 hover:underline hover:text-white"
+          >
+            +62 858-0642-8673
+          </a>
+        </li>
         <li className="flex items-center gap-2 text-white">
           <FaEnvelope className="" />
           <p className="text-cyan-400">egagunawannovaldi@gmail.com</p>
