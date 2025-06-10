@@ -1,5 +1,5 @@
 import { LayoutDashboard, FileCode2 } from "lucide-react";
-import { FaLaravel, FaBootstrap, FaVuejs } from "react-icons/fa";
+import { FaLaravel, FaBootstrap, FaVuejs, FaHtml5, FaJs } from "react-icons/fa";
 import { SiTailwindcss, SiMysql } from "react-icons/si";
 
 const iconMap = {
@@ -10,6 +10,8 @@ const iconMap = {
   "Vue.js": <FaVuejs className="w-4 h-4 text-green-500" />,
   "Tailwind CSS": <SiTailwindcss className="w-4 h-4 text-cyan-400" />,
   MySQL: <SiMysql className="w-4 h-4 text-yellow-400" />,
+  HTML: <FaHtml5 className="w-4 h-4 text-orange-500" />,
+  JavaScript: <FaJs className="w-4 h-4 text-yellow-500" />,
 };
 
 const projects = [
@@ -44,6 +46,14 @@ const projects = [
     icon: <FileCode2 className="w-6 h-6 text-white" />,
     link: "https://github.com/Egaxyz/Todolist",
     tech: ["Laravel Breeze", "Vue.js"],
+  },
+  {
+    title: "Calculator Web – Calculator Website Application",
+    description:
+      "A web-based calculator application that performs basic arithmetic operations with a user-friendly interface",
+    icon: <FileCode2 className="w-6 h-6 text-white" />,
+    link: "https://github.com/Egaxyz/KalkulatorWeb",
+    tech: ["HTML", "Bootstrap", "JavaScript"],
   },
 ];
 
