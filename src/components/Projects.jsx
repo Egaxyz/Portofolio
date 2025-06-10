@@ -47,6 +47,14 @@ const projects = [
     link: "https://github.com/Egaxyz/Todolist",
     tech: ["Laravel Breeze", "Vue.js"],
   },
+  {
+    title: "Calculator Web – Calculator Website Application",
+    description:
+      "A web-based calculator application that performs basic arithmetic operations with a user-friendly interface",
+    icon: <FileCode2 className="w-6 h-6 text-white" />,
+    link: "https://github.com/Egaxyz/KalkulatorWeb",
+    tech: ["HTML", "Bootstrap", "JavaScript"],
+  },
 ];
 
 export default function Projects() {
