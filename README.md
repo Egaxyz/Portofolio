@@ -34,7 +34,7 @@ I enjoy working on web applications with modern UI and collaborating in teams to
 To run this project locally:
 
 ```bash
-git clone https://github.com/username/portfolio.git
+git clone https://github.com/Egaxyz/Portfolio.git
 
 cd portfolio
 
