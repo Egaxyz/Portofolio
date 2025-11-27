@@ -1,19 +1,35 @@
-export default function Header() {
+export default function About() {
   return (
-    <header className="">
-      <h1 className="text-2xl md:text-3xl font-extrabold text-white">
-        Ega Gunawan Novaldi
-      </h1>
-      <p className="text-sm md:text-lg text-gray-400 mt-2 md:mt-4">
-        Fullstack Developer
+    <section id="header" className="py-10">
+      <style>{`
+        .typing {
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          border-right: .12em solid rgba(255,255,255,0.85);
+          animation:
+            typing 7s steps(20, end) infinite,
+            blink .75s step-end infinite;
+          width: 20ch;
+        }
+        @keyframes typing {
+          0%   { width: 0ch; }
+          26.315789% { width: 20ch; }    
+          78.947368% { width: 20ch; }    
+          100% { width: 0ch; }
+        }
+        @keyframes blink {
+          50% { border-color: transparent; }
+        }
+      `}</style>
+
+      <h2 className="text-4xl font-semibold">Ega Gunawan Novaldi</h2>
+      <p className="text-1xl mt-8 italic">
+        <span className="typing">Full Stack Developer</span>
       </p>
-      <a
-        href="../CV/cv.pdf"
-        download
-        className="inline-flex items-center px-2 py-1 md:px-3 md:py-2 my-3 md:my-4 bg-cyan-500 text-xs md:text-base text-white rounded hover:bg-cyan-600 transition"
-      >
-        📄 Download CV
-      </a>
-    </header>
+      <button className="bg-sky-500 text-white hover:bg-[#0d1425] hover:outline outline-offset-2 rounded-md p-1 mt-8 text-2xl font-sans">
+        About Me→{" "}
+      </button>
+    </section>
   );
 }

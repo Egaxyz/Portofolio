@@ -1,20 +1,35 @@
 export default function About() {
   return (
-    <section id="about" className="py-10 ">
-      <p className="leading-relaxed text-gray-300">
-        I’m a fresh graduate and a junior web programmer passionate about
-        creating interactive and user-friendly web applications. I specialize in
-        using Laravel for backend development and Vue.js or React for frontend
-        development. I have a strong interest in clean code, modern UI/UX, and
-        building responsive applications that work across devices.
+    <section id="about" className="py-10">
+      <style>{`
+        .typing {
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          border-right: .12em solid rgba(255,255,255,0.85);
+          animation:
+            typing 7s steps(20, end) infinite,
+            blink .75s step-end infinite;
+          width: 20ch;
+        }
+        @keyframes typing {
+          0%   { width: 0ch; }
+          26.315789% { width: 20ch; }    
+          78.947368% { width: 20ch; }    
+          100% { width: 0ch; }
+        }
+        @keyframes blink {
+          50% { border-color: transparent; }
+        }
+      `}</style>
+
+      <h2 className="text-4xl font-semibold">Ega Gunawan Novaldi</h2>
+      <p className="text-1xl mt-8 italic">
+        <span className="typing">Full Stack Developer</span>
       </p>
-      <p className="leading-relaxed text-gray-300 mt-3">
-        I’m eager to grow in a professional environment and continuously improve
-        my skills. I enjoy collaborating with others and believe that great
-        products are built through effective teamwork and communication. I'm
-        adaptable, quick to learn new technologies, and committed to delivering
-        quality results in every project I’m involved in.
-      </p>
+      <button className="bg-sky-500 text-white hover:bg-[#0d1425] hover:outline outline-offset-2 rounded-md p-1 mt-8 text-2xl font-sans">
+        About Me→{" "}
+      </button>
     </section>
   );
 }
