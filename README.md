@@ -10,7 +10,7 @@ https://portofolio-eight-bay-91.vercel.app/
 ## ✨ About Me
 
 I'm a junior web developer with experience using:
-- 🧩 Laravel (PHP Framework)
+- 🧩 Laravel
 - ⚙️ Vue.js
 - ⚛️ React
 
@@ -26,18 +26,4 @@ I enjoy working on web applications with modern UI and collaborating in teams to
 
 ## 📸 Preview
 
-![Screenshot 2025-05-03 121206](https://github.com/user-attachments/assets/790d3e34-88d0-4b79-928f-22b8dec1d20f)
-
-
-## 🚀 Getting Started
-
-To run this project locally:
-
-```bash
-git clone https://github.com/Egaxyz/Portfolio.git
-
-cd portfolio
-
-npm install
-
-npm run dev
+<img width="1915" height="943" alt="Screenshot 2025-11-27 192204" src="https://github.com/user-attachments/assets/814da8b6-c92d-4920-a78b-2905df93d2c3" />
