@@ -33,12 +33,12 @@ export default function App() {
       </button> */}
 
       {/* Contact (fixed, scroll ikut) */}
-      <div className="w-24 p-5 fixed">
+      <div className="w-20 p-5 fixed">
         <Contact />
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex items-start ml-24">
+      <div className="flex-1 flex items-start ml-10">
         <MainContent />
       </div>
 
