@@ -1,35 +1,24 @@
+import ScrollRevealApple from "./ScrollReveal";
+import ScrollReveal from "./ScrollReveal";
 export default function About() {
   return (
-    <section id="about" className="py-10">
-      <style>{`
-        .typing {
-          display: inline-block;
-          overflow: hidden;
-          white-space: nowrap;
-          border-right: .12em solid rgba(255,255,255,0.85);
-          animation:
-            typing 7s steps(20, end) infinite,
-            blink .75s step-end infinite;
-          width: 20ch;
-        }
-        @keyframes typing {
-          0%   { width: 0ch; }
-          26.315789% { width: 20ch; }    
-          78.947368% { width: 20ch; }    
-          100% { width: 0ch; }
-        }
-        @keyframes blink {
-          50% { border-color: transparent; }
-        }
-      `}</style>
-
-      <h2 className="text-4xl font-semibold">Ega Gunawan Novaldi</h2>
-      <p className="text-1xl mt-8 italic">
-        <span className="typing">Full Stack Developer</span>
-      </p>
-      <button className="bg-sky-500 text-white hover:bg-[#0d1425] hover:outline outline-offset-2 rounded-md p-1 mt-8 text-2xl font-sans">
-        About Me→{" "}
-      </button>
+    <section
+      id="about"
+      className="py-32 mx-auto max-w-6xl font-semibold text-2xl px-5"
+    >
+      <ScrollRevealApple>
+        My name is Ega Gunawan Novaldi, a passionate Full Stack Developer with a
+        knack for creating dynamic and responsive web applications. With a
+        strong foundation in both front-end and back-end technologies, I thrive
+        on transforming ideas into functional digital experiences. My expertise
+        includes JavaScript, React, Node.js, Vue.js, Laravel, and database
+        management, allowing me to build seamless and efficient solutions. I am
+        dedicated to continuous learning and staying updated with the latest
+        industry trends to deliver innovative and user-centric applications.
+        Let's connect and explore how I can contribute to your next project!.
+        Right now, I am focusing on improving my skills in Python and Go
+        programming languages.
+      </ScrollRevealApple>
     </section>
   );
 }

@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div
       className={`
-    min-h-screen w-screen flex overflow-hidden
+    min-h-screen w-screen flex 
     ${theme === "dark" ? "bg-[#0d1425] text-[#E2E8F0]" : "bg-white text-black"}
   `}
     >
@@ -27,8 +27,8 @@ export default function App() {
         }
         title={theme === "dark" ? "Light mode" : "Dark mode"}
         className="
-          absolute 
-          right-10 
+          fixed 
+          right-5 
           top-1/2 
           -translate-y-1/2 
           bg-gray-700 
@@ -65,7 +65,7 @@ export default function App() {
           </svg>
         )}
       </button>
-      <div className="w-24 flex items-start justify-center">
+      <div className="w-24 p-5 items-start justify-center fixed">
         <Contact />
       </div>
 
