@@ -31,6 +31,7 @@ export default function MainContent() {
       </div>
 
       <div
+        className="header-wrapper"
         style={{
           position: "relative",
           zIndex: 1,
@@ -40,6 +41,7 @@ export default function MainContent() {
       >
         <Header />
       </div>
+
       <div style={{ marginTop: "250px", marginBottom: "100px" }}>
         <About />
       </div>

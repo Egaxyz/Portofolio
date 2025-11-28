@@ -76,36 +76,56 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="space-y-10">
-      <h1 className="text-3xl text-white font-bold">Projects</h1>
+    <section id="projects" className="space-y-8">
+      {/* Title */}
+      <h1 className="text-xl md:text-3xl text-white font-bold">Projects</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {projects.map((project, idx) => (
           <div
             key={idx}
-            className="bg-[#202035] p-6 rounded-xl shadow-lg flex flex-col min-h-[330px]
-            hover:scale-[1.1] hover:shadow-xl transition-all duration-200"
+            className="
+              bg-[#202035] 
+              p-4 md:p-6 
+              rounded-xl shadow-lg 
+              flex flex-col 
+              min-h-[260px] md:min-h-[330px]
+              hover:scale-[1.05] md:hover:scale-[1.1] 
+              hover:shadow-xl 
+              transition-all duration-200
+            "
           >
-            {/* HEADER */}
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 bg-[#3b3b55] rounded-lg">{project.icon}</div>
-              <h3 className="text-white text-xl font-semibold">
+            {/* Header */}
+            <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+              <div className="p-2 md:p-2.5 bg-[#3b3b55] rounded-lg">
+                {project.icon}
+              </div>
+              <h3 className="text-white text-lg md:text-xl font-semibold">
                 {project.title}
               </h3>
             </div>
 
-            {/* DESCRIPTION */}
-            <p className="text-gray-300 leading-relaxed mb-4">
+            {/* Description */}
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4">
               {project.description}
             </p>
 
-            {/* TECH STACK */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2 mb-3 md:mb-4">
               {project.tech.map((tech, i) => (
                 <span
                   key={i}
-                  className="flex items-center gap-1 text-sm border border-gray-600 px-3 py-1
-                  rounded-full text-gray-300 bg-[#1f1f32]"
+                  className="
+                    flex items-center gap-1 
+                    text-xs md:text-sm 
+                    border border-gray-600 
+                    px-2 md:px-3 
+                    py-1 
+                    rounded-full 
+                    text-gray-300 
+                    bg-[#1f1f32]
+                  "
                 >
                   {iconMap[tech] ?? <FileCode2 className="w-4 h-4" />}
                   {tech}
@@ -113,13 +133,13 @@ export default function Projects() {
               ))}
             </div>
 
-            {/* LINK */}
+            {/* Link */}
             {project.link && (
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto text-blue-400 hover:underline text-sm"
+                className="mt-auto text-blue-400 hover:underline text-xs md:text-sm"
               >
                 {project.link}
               </a>

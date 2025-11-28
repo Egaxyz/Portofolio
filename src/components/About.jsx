@@ -1,10 +1,9 @@
 import ScrollRevealApple from "./ScrollReveal";
-import ScrollReveal from "./ScrollReveal";
 export default function About() {
   return (
     <section
       id="about"
-      className="py-32 mx-auto max-w-6xl font-semibold text-2xl px-5"
+      className="py-32 mx-auto max-w-6xl font-semibold text-base md:text-base lg:text-2xl px-5"
     >
       <ScrollRevealApple>
         My name is Ega Gunawan Novaldi, a passionate Full Stack Developer with a
