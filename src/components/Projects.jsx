@@ -33,9 +33,9 @@ const projects = [
     tech: ["Laravel 11", "Bootstrap 5", "MySQL"],
   },
   {
-    title: "Edutama Laundry – Frontend Management System",
+    title: "Edutama – Frontend Management System",
     description:
-      "A web-based laundry management system for handling orders, customers, and transactions efficiently with a user-friendly interface and responsive design. Features include order tracking, customer management, and reporting.",
+      "Contributed to the EDUTAMA application project during my internship(PKL), designing and implementing the UI using Vue.js, performing debugging, and creating documentation. Focused on front-end modules and API integration.",
     icon: <FileCode2 className="w-6 h-6 text-white" />,
     link: null,
     tech: ["Vue.js", "Tailwind CSS"],
