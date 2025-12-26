@@ -1,4 +1,11 @@
-import { LayoutDashboard, FileCode2 } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  LayoutDashboard,
+  FileCode2,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import {
   FaLaravel,
   FaBootstrap,
@@ -6,9 +13,15 @@ import {
   FaHtml5,
   FaJs,
   FaCss3,
+  FaNodeJs,
 } from "react-icons/fa";
-import { SiTailwindcss, SiMysql, SiNextdotjs } from "react-icons/si";
-
+import {
+  SiExpress,
+  SiTailwindcss,
+  SiMysql,
+  SiNextdotjs,
+  SiPostgresql,
+} from "react-icons/si";
 const iconMap = {
   "Laravel 11": <FaLaravel className="w-4 h-4 text-red-500" />,
   "Laravel Breeze": <FaLaravel className="w-4 h-4 text-red-500" />,
@@ -21,51 +34,51 @@ const iconMap = {
   JavaScript: <FaJs className="w-4 h-4 text-yellow-500" />,
   "Next.js": <SiNextdotjs className="w-4 h-4 text-black" />,
   CSS: <FaCss3 className="w-4 h-4 text-blue-500" />,
+  Postgresql: <SiPostgresql className="w-4 h-4 text-blue-500" />,
+  Express: <SiExpress className="w-4 h-4 text-white" />,
+  NodeJs: <FaNodeJs className="w-4 h-4 text-green-500" />,
 };
 
 const projects = [
   {
     title: "RestoPOS – Restaurant Cashier Web App",
+    image: "../assets/pos.png",
     description:
-      "A comprehensive point-of-sale system for restaurant order management, billing, and reporting feature that streamlines operations and enhances customer service efficiency, the perfect solution for modern sales management.",
+      "A full-featured point-of-sale (POS) web application designed to manage restaurant orders, transactions, and sales reports efficiently. This system helps streamline daily operations, improve transaction accuracy, and support better decision-making through structured reporting.",
     icon: <LayoutDashboard className="w-6 h-6 text-white" />,
     link: "https://github.com/Egaxyz/RestoPOS",
     tech: ["Laravel 11", "Bootstrap 5", "MySQL"],
   },
   {
-    title: "Edutama – Frontend Management System",
-    description:
-      "Contributed to the EDUTAMA application project during my internship(PKL), designing and implementing the UI using Vue.js, performing debugging, and creating documentation. Focused on front-end modules and API integration.",
-    icon: <FileCode2 className="w-6 h-6 text-white" />,
-    link: null,
-    tech: ["Vue.js", "Tailwind CSS"],
-  },
-  {
     title: "Inventory & Borrowing Management System",
+    image: "../assets/peminjaman.png",
     description:
-      "A web application to manage inventory and borrowing of items, featuring item tracking, user management, and reporting functionalities. Ideal for organizations to streamline their asset management processes. The system allows users to easily borrow and return items while keeping track of inventory levels.",
+      "A web-based inventory and borrowing management system that enables organizations to track assets, manage users, and monitor borrowing activities in real time. The application simplifies item availability tracking, borrowing history, and reporting to ensure efficient asset management.",
     icon: <LayoutDashboard className="w-6 h-6 text-white" />,
     link: "https://github.com/Egaxyz/gudang-barang",
     tech: ["Laravel 11", "Bootstrap", "MySQL"],
   },
   {
     title: "To-do List – Task Management App",
+    image: "../assets/pos.png",
     description:
-      "A simple and intuitive to-do list application that helps users organize and manage their tasks effectively. Features include task creation, editing, deletion, and categorization to enhance productivity and task tracking.",
+      "A simple yet effective task management application that allows users to create, edit, delete, and organize tasks efficiently. Designed to improve productivity, the app provides a clean and intuitive interface for managing daily activities and priorities.",
     icon: <FileCode2 className="w-6 h-6 text-white" />,
     link: "https://github.com/Egaxyz/Todolist",
     tech: ["Laravel Breeze", "Vue.js"],
   },
   {
-    title: "ERP –  Website",
+    title: "Enterprise Resource Planning (OnProgress)",
+    image: "../assets/pos.png",
     description:
-      "A modern and responsive ERP (Enterprise Resource Planning) website built with Next.js and Tailwind CSS, showcasing various business solutions and services. The website features a clean design, easy navigation, and optimized performance for an enhanced user experience.",
+      "An enterprise-level ERP (Enterprise Resource Planning) application currently under development, built with Next.js, Tailwind CSS, Node.js, Express, and PostgreSQL. The system is designed to manage and integrate core business processes through a modern, responsive interface, focusing on scalability, clean architecture, and efficient data handling.",
     icon: <LayoutDashboard className="w-6 h-6 text-white" />,
-    link: "https://erp-nextjs-ui-i979.vercel.app/",
-    tech: ["Tailwind CSS", "Next.js"],
+    link: "https://github.com/Egaxyz/erp",
+    tech: ["Tailwind CSS", "Next.js", "NodeJs", "Express", "Postgresql"],
   },
   {
     title: "Landing Page - Steak House",
+    image: "../assets/steak.png",
     description:
       "A visually appealing landing page for a steak house restaurant, designed to attract customers and showcase the menu, ambiance, and special offers. Built with HTML, CSS, and JavaScript, the landing page features responsive design and smooth animations for an engaging user experience.",
     icon: <FileCode2 className="w-6 h-6 text-white" />,
@@ -74,45 +87,85 @@ const projects = [
   },
 ];
 
-export default function Projects() {
-  return (
-    <section id="projects" className="space-y-8">
-      {/* Title */}
-      <h1 className="text-xl md:text-3xl text-white font-bold">Projects</h1>
+export default function ProjectGallery() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-        {projects.map((project, idx) => (
-          <div
-            key={idx}
+  const prevProject = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
+
+  const nextProject = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  };
+
+  const project = projects[currentIndex];
+
+  const variants = {
+    enter: (dir) => ({ x: dir > 0 ? 400 : -400, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir) => ({ x: dir < 0 ? 400 : -400, opacity: 0 }),
+  };
+
+  return (
+    <section id="projects" className="space-y-10">
+      <h1 className="text-2xl md:text-4xl text-white font-bold text-center">
+        My Projects
+      </h1>
+
+      <div className="relative flex items-center justify-center">
+        <button
+          onClick={prevProject}
+          className="absolute left-[-60px] text-white p-3 md:p-5 hover:bg-gray-700 rounded-full transition"
+        >
+          <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
+        </button>
+
+        {/* Card */}
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={project.title}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="
-              bg-[#202035] 
-              p-4 md:p-6 
-              rounded-xl shadow-lg 
+              bg-[#1f2937] 
+              p-6 md:p-8 
+              rounded-3xl shadow-2xl 
               flex flex-col 
-              min-h-[260px] md:min-h-[330px]
-              hover:scale-[1.05] md:hover:scale-[1.1] 
-              hover:shadow-xl 
-              transition-all duration-200
+              w-full max-w-3xl
+              min-h-[400px] md:min-h-[500px]
             "
           >
             {/* Header */}
-            <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-              <div className="p-2 md:p-2.5 bg-[#3b3b55] rounded-lg">
-                {project.icon}
-              </div>
-              <h3 className="text-white text-lg md:text-xl font-semibold">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 bg-[#3b3b55] rounded-lg">{project.icon}</div>
+              <h3 className="text-white text-lg md:text-2xl font-semibold">
                 {project.title}
               </h3>
             </div>
 
+            {/* Image */}
+            {project.image && (
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-60 md:h-72 object-cover rounded-lg mb-4"
+              />
+            )}
+
             {/* Description */}
-            <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4">
+            <p className="text-gray-300 text-sm md:text-base mb-4">
               {project.description}
             </p>
 
             {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-3 md:mb-4">
+            <div className="flex flex-wrap gap-2 mb-4">
               {project.tech.map((tech, i) => (
                 <span
                   key={i}
@@ -120,9 +173,7 @@ export default function Projects() {
                     flex items-center gap-1 
                     text-xs md:text-sm 
                     border border-gray-600 
-                    px-2 md:px-3 
-                    py-1 
-                    rounded-full 
+                    px-3 py-1 rounded-full 
                     text-gray-300 
                     bg-[#1f1f32]
                   "
@@ -139,13 +190,21 @@ export default function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto text-blue-400 hover:underline text-xs md:text-sm"
+                className="mt-auto text-blue-400 hover:underline text-sm md:text-base"
               >
-                {project.link}
+                Visit Project
               </a>
             )}
-          </div>
-        ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Arrow Right */}
+        <button
+          onClick={nextProject}
+          className="absolute right-[-60px] text-white p-3 md:p-5 hover:bg-gray-700 rounded-full transition"
+        >
+          <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
+        </button>
       </div>
     </section>
   );

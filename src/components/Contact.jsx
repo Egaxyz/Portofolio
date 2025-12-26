@@ -3,7 +3,6 @@ import {
   FaEnvelope,
   FaFacebook,
   FaInstagram,
-  FaGithub,
   FaWhatsapp,
   FaBars,
   FaTimes,
@@ -37,7 +36,7 @@ export default function Contact() {
       >
         {/* WhatsApp */}
         <li className="relative h-5 w-5 sm:h-7 sm:w-5">
-          <a href="https://wa.me/+6285806428673" target="_blank">
+          <a href="https://wa.me/+6285806428673" target="blank">
             <FaWhatsapp className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-1 hover:translate-x-2 hover:-translate-y-1" />
           </a>
         </li>
@@ -46,7 +45,7 @@ export default function Contact() {
         <li className="relative h-5 w-5 sm:h-7 sm:w-5">
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=egagunawannovaldi@gmail.com"
-            target="_blank"
+            target="blank"
           >
             <FaEnvelope className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-2 hover:translate-x-2 hover:-translate-y-1" />
           </a>
@@ -54,22 +53,15 @@ export default function Contact() {
 
         {/* Facebook */}
         <li className="relative h-5 w-5 sm:h-7 sm:w-5">
-          <a href="https://www.facebook.com/ezio.joestarii" target="_blank">
+          <a href="https://www.facebook.com/ezio.joestarii" target="blank">
             <FaFacebook className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-2 hover:translate-x-2 hover:-translate-y-1" />
           </a>
         </li>
 
         {/* Instagram */}
         <li className="relative h-5 w-5 sm:h-7 sm:w-5">
-          <a href="https://www.instagram.com/noval_gunz/" target="_blank">
+          <a href="https://www.instagram.com/noval_gunz/" target="blank">
             <FaInstagram className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-2 hover:translate-x-2 hover:-translate-y-1" />
-          </a>
-        </li>
-
-        {/* GitHub */}
-        <li className="relative h-5 w-5 sm:h-7 sm:w-5">
-          <a href="https://github.com/Egaxyz" target="_blank">
-            <FaGithub className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-2 hover:translate-x-2 hover:-translate-y-1" />
           </a>
         </li>
       </ul>
