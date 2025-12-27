@@ -36,7 +36,7 @@ export default function About() {
   ];
 
   const TechCard = ({ name, Icon }) => (
-    <div className="flex flex-col items-center justify-center bg-[#1f2937] p-5 rounded-xl shadow-lg hover:scale-105 transition-transform">
+    <div className="flex flex-col items-center justify-center dark:bg-[#1f2937] bg-slate-500 p-5 rounded-xl shadow-lg hover:scale-105 transition-transform">
       <Icon className="w-10 h-10 text-white mb-2" />
       <p className="text-white text-sm mt-1">{name}</p>
     </div>
@@ -48,7 +48,7 @@ export default function About() {
       className="font-semibold text-base md:text-base lg:text-2xl px-5 py-20"
     >
       <div className="max-w-6xl items-center mx-auto flex flex-col">
-        <div className="text-4xl text-white text-center">
+        <div className="text-4xl dark:text-white text-black text-center">
           <TextType
             text={["Tech That I use", "Front End", "Back End"]}
             typingSpeed={75}
@@ -58,21 +58,21 @@ export default function About() {
           />
         </div>
 
-        {/* Frontend & Backend */}
         <div className="mt-10 w-full grid md:grid-cols-2 gap-16">
-          {/* Frontend */}
           <div>
-            <h3 className="text-2xl mb-6 text-white text-center">Frontend</h3>
+            <h3 className="text-2xl mb-6 dark:text-white text-black text-center">
+              Frontend
+            </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6">
               {frontendTech.map((tech) => (
                 <TechCard key={tech.name} Icon={tech.icon} name={tech.name} />
               ))}
             </div>
           </div>
-
-          {/* Backend */}
           <div>
-            <h3 className="text-2xl mb-6 text-white text-center ">Backend</h3>
+            <h3 className="text-2xl mb-6 dark:text-white text-black text-center ">
+              Backend
+            </h3>
             <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-6">
               {backendTech.map((tech) => (
                 <TechCard key={tech.name} Icon={tech.icon} name={tech.name} />
@@ -80,10 +80,10 @@ export default function About() {
             </div>
           </div>
         </div>
-
-        {/* Other */}
         <div className="mt-16 w-full">
-          <h3 className="text-2xl mb-6 text-white text-center">Other</h3>
+          <h3 className="text-2xl mb-6 dark:text-white text-black text-center">
+            Other
+          </h3>
           <div className="grid grid-cols-3 md:grid-cols-4 sm:grid-cols-4 gap-6 justify-center">
             {otherTech.map((tech) => (
               <TechCard key={tech.name} Icon={tech.icon} name={tech.name} />

@@ -4,26 +4,19 @@ import {
   FaFacebook,
   FaInstagram,
   FaWhatsapp,
-  FaBars,
-  FaTimes,
 } from "react-icons/fa";
 
 export default function Contact() {
-  const [open, setOpen] = useState(false);
+  const [open] = useState(false);
 
   return (
-    <section className="sm:my-52 my-5 ml-1">
-      {/* === MOBILE BURGER MENU (kecil & tanpa jarak) === */}
+    <section className="sm:my-52 my-5">
       <div className="sm:hidden">
-        <button
-          onClick={() => setOpen(!open)}
-          className="text-white text-xl p-1" // lebih kecil & lebih rapat
-        >
+        {/* <button onClick={() => setOpen(!open)} className="text-xl p-1">
           {open ? <FaTimes /> : <FaBars />}
-        </button>
+        </button> */}
       </div>
 
-      {/* === CONTACT LIST === */}
       <ul
         className={`
           ${open ? "block" : "hidden"} 
@@ -31,13 +24,15 @@ export default function Contact() {
           space-y-3 
           text-lg sm:text-2xl 
           relative
-          ml-1
+          p-2
+          dark:bg-transparent
+          bg-slate-500
+          rounded-xl
         `}
       >
-        {/* WhatsApp */}
         <li className="relative h-5 w-5 sm:h-7 sm:w-5">
           <a href="https://wa.me/+6285806428673" target="blank">
-            <FaWhatsapp className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-1 hover:translate-x-2 hover:-translate-y-1" />
+            <FaWhatsapp className="text-green-500 absolute hover:bg-white hover:rounded-full " />
           </a>
         </li>
 
@@ -47,21 +42,21 @@ export default function Contact() {
             href="https://mail.google.com/mail/?view=cm&fs=1&to=egagunawannovaldi@gmail.com"
             target="blank"
           >
-            <FaEnvelope className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-2 hover:translate-x-2 hover:-translate-y-1" />
+            <FaEnvelope className="text-white absolute hover:bg-black dark:hover:text-black " />
           </a>
         </li>
 
         {/* Facebook */}
         <li className="relative h-5 w-5 sm:h-7 sm:w-5">
           <a href="https://www.facebook.com/ezio.joestarii" target="blank">
-            <FaFacebook className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-2 hover:translate-x-2 hover:-translate-y-1" />
+            <FaFacebook className="absolute text-blue-600 hover:bg-white hover:rounded-full " />
           </a>
         </li>
 
         {/* Instagram */}
         <li className="relative h-5 w-5 sm:h-7 sm:w-5">
           <a href="https://www.instagram.com/noval_gunz/" target="blank">
-            <FaInstagram className="text-white absolute left-0 top-0 transition-all duration-200 hover:scale-150 hover:bg-white hover:text-black hover:rounded-full hover:p-1 hover:m-2 hover:translate-x-2 hover:-translate-y-1" />
+            <FaInstagram className="absolute text-red-400 hover:bg-white hover:rounded-full " />
           </a>
         </li>
       </ul>

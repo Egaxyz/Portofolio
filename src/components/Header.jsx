@@ -1,8 +1,12 @@
 import Particle from "./Particle";
 
-export default function About() {
+export default function Header({ theme }) {
+  const particleColors =
+    theme === "dark" ? ["#ffffff", "#ffffff"] : ["#84cdee", "#84cdee"];
+  console.log("theme:", theme, particleColors);
+
   return (
-    <section id="header" className="py-10">
+    <section id="header" className="py-10 dark:text-gray-300">
       <div
         style={{
           position: "absolute",
@@ -15,7 +19,8 @@ export default function About() {
         }}
       >
         <Particle
-          particleColors={["#ffffff", "#ffffff"]}
+          key={theme}
+          particleColors={particleColors}
           particleCount={500}
           particleSpread={10}
           speed={0.1}
@@ -27,32 +32,44 @@ export default function About() {
       </div>
 
       <div className="flex justify-center items-start pt-20">
-        <div className="flex max-w-5xl gap-28 px-16">
+        <div className="flex flex-col lg:flex-row max-w-5xl gap-12 lg:gap-28 px-6 sm:px-10 lg:px-16">
           <div className="flex flex-col mt-16">
-            <h2 className="text-6xl font-bold tracking-widest text-white">
+            <h2
+              className="
+    text-4xl sm:text-5xl lg:text-6xl
+    font-bold tracking-widest
+    bg-gradient-to-b from-sky-400 to-emerald-400
+    bg-clip-text text-transparent
+    dark:text-white
+  "
+            >
               W E L C O M E
             </h2>
 
-            <div className="relative mt-6 pl-6">
-              <span className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-sky-400 to-emerald-400" />
+            <div className="relative mt-6 pl-0 lg:pl-6">
+              <span className="hidden lg:block absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-sky-400 to-emerald-400" />
 
-              <p className="text-lg leading-relaxed text-gray-300">
-                I’m Ega Gunawan Novaldi, a Full Stack Developer who enjoys
-                building responsive and efficient web applications. I work with
-                modern technologies like JavaScript, React, Laravel, and Node.js
-                to turn ideas into real digital products. Currently, I’m
-                expanding my skills in Python and Go to explore scalable backend
-                solutions.
+              <p className="text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                Hello I’m{" "}
+                <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
+                  Ega Gunawan Novaldi
+                </span>
+                , a Full Stack Developer with a passion for building responsive,
+                efficient, and scalable web applications. I specialize in modern
+                technologies such as Vue.js, React.js, Laravel, and Node.js to
+                transform ideas into real digital products. Currently, I’m
+                expanding my expertise in Python and Go to explore
+                high-performance backend solutions.
               </p>
+
               <a href="../CV/cv.pdf" download>
                 <button
                   className="
                     flex items-center justify-center gap-2
-                    border border-white font-semibold
+                    border border-black dark:border-white font-semibold
                     w-60 h-12
-                    rounded-sm my-4
-                    text-white
-                    hover:bg-white hover:text-black
+                    rounded-sm my-4 hover:bg-gray-400 hover:text-white
+                    dark:hover:bg-white dark:hover:text-black
                     transition
                   "
                 >
@@ -77,26 +94,39 @@ export default function About() {
           </div>
 
           <div className="flex flex-col px-16">
-            <h1 className="text-2xl mb-4">Projects</h1>
-            <div className="relative p-6">
+            <h1 className="text-2xl font-semibold mb-4">Projects</h1>
+            <div className="relative p-4">
               <span className="absolute left-0 top-0 w-24 h-1 bg-gradient-to-r from-pink-400 to-yellow-400 rounded-tl-md" />
 
               <span className="absolute left-0 top-0 h-20 w-1 bg-gradient-to-b from-pink-400 to-yellow-400 rounded-tl-md" />
 
-              <ul className="space-y-3 text-md text-gray-300">
-                <li className="hover:underline hover:cursor-pointer">
-                  Point Of Sale
-                </li>
-                <li className="hover:underline hover:cursor-pointer">ERP</li>
-                <li className="hover:underline hover:cursor-pointer">
+              <ul className="text-md">
+                <a href="https://github.com/Egaxyz/POS-Laravel" target="blank">
+                  <li className="hover:underline italic hover:cursor-pointer pb-1">
+                    Point Of Sale
+                  </li>
+                </a>
+                <a href="https://github.com/Egaxyz/erp" target="blank">
+                  <li className="hover:underline italic hover:cursor-pointer py-1">
+                    ERP
+                  </li>
+                </a>
+                <li className="hover:underline italic hover:cursor-pointer py-1">
                   Edutama
                 </li>
-                <li className="hover:underline hover:cursor-pointer">
-                  Steak House
-                </li>
-                <li className="hover:underline hover:cursor-pointer">
-                  Inventory Management System
-                </li>
+                <a
+                  href="https://landing-page-resto-omega.vercel.app/"
+                  target="blank"
+                >
+                  <li className="hover:underline italic hover:cursor-pointer py-1">
+                    Steak House
+                  </li>
+                </a>
+                <a href="https://github.com/Egaxyz/gudang-barang">
+                  <li className="hover:underline italic hover:cursor-pointer py-1">
+                    Inventory Management System
+                  </li>
+                </a>
               </ul>
             </div>
           </div>

@@ -60,7 +60,7 @@ const projects = [
   },
   {
     title: "To-do List – Task Management App",
-    image: "../assets/pos.png",
+    image: "../assets/todo.png",
     description:
       "A simple yet effective task management application that allows users to create, edit, delete, and organize tasks efficiently. Designed to improve productivity, the app provides a clean and intuitive interface for managing daily activities and priorities.",
     icon: <FileCode2 className="w-6 h-6 text-white" />,
@@ -69,7 +69,7 @@ const projects = [
   },
   {
     title: "Enterprise Resource Planning (OnProgress)",
-    image: "../assets/pos.png",
+    image: "../assets/erp.png",
     description:
       "An enterprise-level ERP (Enterprise Resource Planning) application currently under development, built with Next.js, Tailwind CSS, Node.js, Express, and PostgreSQL. The system is designed to manage and integrate core business processes through a modern, responsive interface, focusing on scalability, clean architecture, and efficient data handling.",
     icon: <LayoutDashboard className="w-6 h-6 text-white" />,
@@ -111,19 +111,18 @@ export default function ProjectGallery() {
 
   return (
     <section id="projects" className="space-y-10">
-      <h1 className="text-2xl md:text-4xl text-white font-bold text-center">
+      <h1 className="text-2xl md:text-4xl font-bold text-center">
         My Projects
       </h1>
 
       <div className="relative flex items-center justify-center">
         <button
           onClick={prevProject}
-          className="absolute left-[-60px] text-white p-3 md:p-5 hover:bg-gray-700 rounded-full transition"
+          className="absolute left-[-60px] p-3 md:p-5 hover:bg-gray-700 rounded-full transition"
         >
           <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
         </button>
 
-        {/* Card */}
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={project.title}
@@ -134,7 +133,8 @@ export default function ProjectGallery() {
             exit="exit"
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="
-              bg-[#1f2937] 
+            bg-slate-500  
+            dark:bg-[#1f2937] 
               p-6 md:p-8 
               rounded-3xl shadow-2xl 
               flex flex-col 
@@ -142,15 +142,13 @@ export default function ProjectGallery() {
               min-h-[400px] md:min-h-[500px]
             "
           >
-            {/* Header */}
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 bg-[#3b3b55] rounded-lg">{project.icon}</div>
-              <h3 className="text-white text-lg md:text-2xl font-semibold">
+              <h3 className=" text-lg md:text-2xl font-semibold">
                 {project.title}
               </h3>
             </div>
 
-            {/* Image */}
             {project.image && (
               <img
                 src={project.image}
@@ -159,12 +157,10 @@ export default function ProjectGallery() {
               />
             )}
 
-            {/* Description */}
             <p className="text-gray-300 text-sm md:text-base mb-4">
               {project.description}
             </p>
 
-            {/* Tech Stack */}
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tech.map((tech, i) => (
                 <span
@@ -174,8 +170,10 @@ export default function ProjectGallery() {
                     text-xs md:text-sm 
                     border border-gray-600 
                     px-3 py-1 rounded-full 
-                    text-gray-300 
-                    bg-[#1f1f32]
+                    bg-slate-400
+                    dark:text-white
+                    text-black
+                    dark:bg-[#1f1f32]
                   "
                 >
                   {iconMap[tech] ?? <FileCode2 className="w-4 h-4" />}
@@ -201,7 +199,7 @@ export default function ProjectGallery() {
         {/* Arrow Right */}
         <button
           onClick={nextProject}
-          className="absolute right-[-60px] text-white p-3 md:p-5 hover:bg-gray-700 rounded-full transition"
+          className="absolute right-[-60px]  p-3 md:p-5 hover:bg-gray-700 rounded-full transition"
         >
           <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
         </button>
