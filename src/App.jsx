@@ -18,12 +18,13 @@ export default function App() {
     }
   }, [theme]);
   return (
-    <div className="min-h-screen w-screen flex bg-white text-black dark:bg-[#0d1425] dark:text-[#E2E8F0] transition-colors duration-300">
+    <div className="min-h-screen w-full overflow-x-hidden flex bg-white text-black dark:bg-[#0d1425] dark:text-[#E2E8F0] transition-colors duration-300">
       <button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         className="
           fixed 
-          right-5 
+          right-3 
+          sm:right-5 
           top-1/2 
           -translate-y-1/2
           bg-gray-700 
@@ -58,7 +59,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className="w-50 flex items-start justify-center">
+      <div className="flex items-start justify-center">
         <Navbar />
       </div>
     </div>

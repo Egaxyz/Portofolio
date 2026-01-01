@@ -63,7 +63,7 @@ export default function About() {
             <h3 className="text-2xl mb-6 dark:text-white text-black text-center">
               Frontend
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 gap-6">
               {frontendTech.map((tech) => (
                 <TechCard key={tech.name} Icon={tech.icon} name={tech.name} />
               ))}
@@ -73,7 +73,7 @@ export default function About() {
             <h3 className="text-2xl mb-6 dark:text-white text-black text-center ">
               Backend
             </h3>
-            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 gap-6">
               {backendTech.map((tech) => (
                 <TechCard key={tech.name} Icon={tech.icon} name={tech.name} />
               ))}

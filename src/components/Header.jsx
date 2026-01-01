@@ -50,7 +50,7 @@ export default function Header({ theme }) {
               <span className="hidden lg:block absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-sky-400 to-emerald-400" />
 
               <p className="text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                Hello I’m{" "}
+                I’m{" "}
                 <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
                   Ega Gunawan Novaldi
                 </span>
@@ -93,7 +93,7 @@ export default function Header({ theme }) {
             </div>
           </div>
 
-          <div className="flex flex-col px-16">
+          <div className="sm:flex flex-col px-16 hidden">
             <h1 className="text-2xl font-semibold mb-4">Projects</h1>
             <div className="relative p-4">
               <span className="absolute left-0 top-0 w-24 h-1 bg-gradient-to-r from-pink-400 to-yellow-400 rounded-tl-md" />

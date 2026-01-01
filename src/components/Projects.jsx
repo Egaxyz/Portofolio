@@ -115,57 +115,60 @@ export default function ProjectGallery() {
         My Projects
       </h1>
 
-      <div className="relative flex items-center justify-center">
+      <div className="relative w-full flex items-center justify-center px-12 md:px-0">
         <button
           onClick={prevProject}
-          className="absolute left-[-60px] p-3 md:p-5 hover:bg-gray-700 rounded-full transition"
+          className="absolute left-2 md:left-[-60px] z-30 p-2 md:p-4 hover:bg-gray-700 bg-gray-800/70 rounded-full transition"
         >
-          <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
+          <ChevronLeft className="w-7 h-7 md:w-10 md:h-10" />
         </button>
 
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={project.title}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="
-            bg-slate-500  
-            dark:bg-[#1f2937] 
-              p-6 md:p-8 
-              rounded-3xl shadow-2xl 
-              flex flex-col 
-              w-full max-w-3xl
-              min-h-[400px] md:min-h-[500px]
-            "
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 bg-[#3b3b55] rounded-lg">{project.icon}</div>
-              <h3 className=" text-lg md:text-2xl font-semibold">
-                {project.title}
-              </h3>
-            </div>
+        <div className="overflow-hidden w-full max-w-none md:max-w-3xl">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={project.title}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="
+          bg-slate-500  
+          dark:bg-[#1f2937] 
+          p-6 md:p-8 
+          rounded-3xl shadow-2xl 
+          flex flex-col 
+          w-full
+          md:min-h-[500px]
+        "
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 bg-[#3b3b55] rounded-lg">
+                  {project.icon}
+                </div>
+                <h3 className=" text-lg md:text-2xl font-semibold">
+                  {project.title}
+                </h3>
+              </div>
 
-            {project.image && (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-60 md:h-72 object-cover rounded-lg mb-4"
-              />
-            )}
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-44 md:h-72 object-cover rounded-lg mb-4"
+                />
+              )}
 
-            <p className="text-gray-300 text-sm md:text-base mb-4">
-              {project.description}
-            </p>
+              <p className="text-gray-300 text-sm md:text-base mb-4">
+                {project.description}
+              </p>
 
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tech.map((tech, i) => (
-                <span
-                  key={i}
-                  className="
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="
                     flex items-center gap-1 
                     text-xs md:text-sm 
                     border border-gray-600 
@@ -175,33 +178,32 @@ export default function ProjectGallery() {
                     text-black
                     dark:bg-[#1f1f32]
                   "
+                  >
+                    {iconMap[tech] ?? <FileCode2 className="w-4 h-4" />}
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto text-blue-400 hover:underline text-sm md:text-base"
                 >
-                  {iconMap[tech] ?? <FileCode2 className="w-4 h-4" />}
-                  {tech}
-                </span>
-              ))}
-            </div>
+                  Visit Project
+                </a>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-            {/* Link */}
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto text-blue-400 hover:underline text-sm md:text-base"
-              >
-                Visit Project
-              </a>
-            )}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Arrow Right */}
         <button
           onClick={nextProject}
-          className="absolute right-[-60px]  p-3 md:p-5 hover:bg-gray-700 rounded-full transition"
+          className="absolute right-2 md:right-[-60px] z-30 p-2 md:p-4 hover:bg-gray-700 bg-gray-800/70 rounded-full transition"
         >
-          <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
+          <ChevronRight className="w-7 h-7 md:w-10 md:h-10" />
         </button>
       </div>
     </section>
